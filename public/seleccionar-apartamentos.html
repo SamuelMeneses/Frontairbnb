@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartamentos Disponibles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .imagen {
+            width: 150px;  /* Ajusta el ancho según necesites */
+            height: 100px; /* Ajusta la altura según necesites */
+            object-fit: cover; /* Recorta la imagen sin distorsionarla */
+            border-radius: 8px; /* Bordes redondeados opcionales */
+            margin: 5px;
+        }
+        #apartamentos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajusta el número de columnas automáticamente */
+            gap: 20px; /* Espaciado entre tarjetas */
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .apartamento {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left; /* Alinea el texto a la izquierda */
+        }
+
+        .apartamento img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .apartamento h3 {
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .apartamento p {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Apartamentos Disponibles</h1>
+<div id="apartamentos"></div>
+
+<script src="/src/mainAptos.js"></script>
+
+</body>
+</html>
