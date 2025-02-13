@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apartamentos Disponibles</title>
+    <script src="/src/mainAptos.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,13 +13,15 @@
             margin: 0;
             padding: 20px;
         }
+
         .imagen {
-            width: 150px;  /* Ajusta el ancho según necesites */
+            width: 150px; /* Ajusta el ancho según necesites */
             height: 100px; /* Ajusta la altura según necesites */
             object-fit: cover; /* Recorta la imagen sin distorsionarla */
             border-radius: 8px; /* Bordes redondeados opcionales */
             margin: 5px;
         }
+
         #apartamentos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajusta el número de columnas automáticamente */
@@ -58,8 +61,5 @@
 
 <h1>Apartamentos Disponibles</h1>
 <div id="apartamentos"></div>
-
-<script src="/src/mainAptos.js"></script>
-
 </body>
 </html>

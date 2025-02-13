@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     try {
-        const response = await fetch(`http://localhost:8080/api/reservations/apartments-by-city/${cityName}`);
+        const response = await fetch(`http://localhost:8080/api/reservations/apartments`);
         if (!response.ok) throw new Error(`Error en la respuesta: ${response.statusText}`);
 
         const data = await response.json();

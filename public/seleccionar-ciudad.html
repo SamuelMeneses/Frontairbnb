@@ -3,41 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seleccionar Ciudad</title>
+  <title>Encuentra tu Airbnb</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <script defer src="/src/mainCiudades.js"></script>
-  <link rel="stylesheet" href="styleSeleccionarCiudad.css">
+  <style>
+    /* Estilos generales */
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Imagen de fondo */
+    .background {
+      background: url('https://news.airbnb.com/wp-content/uploads/sites/4/2020/04/Airbnb_Norway_Birdbox.jpg') no-repeat center center/cover;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      filter: brightness(0.7);
+      z-index: -1;
+    }
+
+    /* Contenedor principal */
+    .container-box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      text-align: center;
+    }
+
+    /* Botones */
+    .btn-custom {
+      width: 100%;
+      font-size: 1.2rem;
+      transition: 0.3s ease-in-out;
+    }
+
+    .btn-danger:hover {
+      background-color: #c82333;
+    }
+
+    .btn-outline-light:hover {
+      background-color: white;
+      color: black;
+    }
+
+    /* Sombra para el texto en fondo oscuro */
+    .text-shadow {
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+  </style>
 </head>
 <body>
 
-<section class="container text-center mt-5">
-  <h1 class="fw-bold">Encuentra tu próximo destino</h1>
-  <p class="text-muted">Busca hospedajes en todo el mundo con la mejor experiencia</p>
-  <button class="btn btn-danger btn-lg">Explorar</button>
-</section>
+<!-- Fondo -->
+<div class="background"></div>
 
-<h1>Selecciona tu ciudad</h1>
-<label for="ciudad">Ciudad:</label>
-<select id="ciudad">
-  <option value="">Seleccione una opción</option>
-</select>
+<!-- Contenido central -->
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="container-box">
+    <h1 class="fw-bold text-dark">Encuentra tu próximo Airbnb</h1>
+    <p class="text-muted">Reserva hospedajes únicos en todo el mundo</p>
 
-<!-- 🔹 Agrega un ID al botón -->
-<button id="confirmarCiudad">Confirmar</button>
+    <div class="mb-3">
+      <label for="ciudad" class="form-label fw-semibold">Selecciona tu ciudad</label>
+      <select id="ciudad" class="form-select">
+        <option value="">Seleccione una opción</option>
+      </select>
+    </div>
 
-<!-- 🔹 Guardar la ciudad seleccionada antes de redirigir-->
+    <button id="confirmarCiudad" class="btn btn-danger btn-lg btn-custom mb-2">Ver apartamentos</button>
+    <button id="verTodos" class="btn btn-outline-dark btn-lg btn-custom">Ver todos los apartamentos</button>
+  </div>
+</div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("confirmarCiudad").addEventListener("click", () => {
       const ciudadSeleccionada = document.getElementById("ciudad").value; // Obtiene el valor del id de la ciudad
       if (!ciudadSeleccionada) {
-        alert("⚠️ Debes seleccionar una ciudad.");
+        alert("⚠️ Debes seleccionar una ciudad ⚠️");
         return;
       }
       localStorage.setItem("ciudadSeleccionada", ciudadSeleccionada); // Guardar en localStorage
-      window.location.href = "seleccionar-apartamentos.html"; // 🔴 Redirige al usuario
+      window.location.href = "seleccionar-apartamentos-PorCiudad.html"; // Redirige al usuario
+    });
+
+    document.getElementById("verTodos").addEventListener("click", () => {
+      window.location.href = "seleccionar-apartamentos-todasCiudades.html";
     });
   });
 </script>
+
 </body>
 </html>
