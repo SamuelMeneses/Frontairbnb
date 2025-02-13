@@ -25,9 +25,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     window.location.href = "seleccionar-ciudad.html"; // 🔴 Redirige al usuario
                 } else {
                     const data = await response.json();
-                    message.textContent = "❌ " + data.message;
+                    message.textContent = "❌ " + (data.error || "Error desconocido.");
                     message.style.color = "red";
-                    throw new Error(`Error ${response.status}: ${response.statusText}`);
                 }
 
             } catch (error) {
