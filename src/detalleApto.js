@@ -64,6 +64,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         document.querySelector(".container").appendChild(btnRestaurar);
 
+        // Agregar evento al botón de reserva
+        const botonReserva = document.querySelector(".boton-reserva");
+        botonReserva.addEventListener("click", () => {
+            window.location.href = "reserva.html";
+        });
+
     } catch (error) {
         console.error("❌ Error al obtener detalles del apartamento:", error);
         document.body.innerHTML = "<p>Error al cargar los detalles.</p>";

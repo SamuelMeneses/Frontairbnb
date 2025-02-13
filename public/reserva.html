@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserva de Apartamento</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://news.airbnb.com/wp-content/uploads/sites/4/2020/04/Airbnb_Norway_Birdbox.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, select:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Reserva de Apartamento</h1>
+  <form id="reserva-form">
+    <div class="form-group">
+      <label for="fecha-inicio">Fecha de Inicio</label>
+      <input type="date" id="fecha-inicio" name="fecha-inicio" required>
+    </div>
+    <div class="form-group">
+      <label for="fecha-fin">Fecha de Fin</label>
+      <input type="date" id="fecha-fin" name="fecha-fin" required>
+    </div>
+    <div class="form-group">
+      <label for="metodo-pago">Método de Pago</label>
+      <select id="metodo-pago" name="metodo-pago" required>
+        <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+        <option value="paypal">PayPal</option>
+        <option value="transferencia">Transferencia Bancaria</option>
+      </select>
+    </div>
+    <button type="submit">Confirmar Reserva</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('reserva-form').addEventListener('submit', function(event) {
+    const fechaInicio = new Date(document.getElementById('fecha-inicio').value);
+    const fechaFin = new Date(document.getElementById('fecha-fin').value);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set to midnight to compare only dates
+
+    if (fechaInicio < today) {
+      alert('La fecha de inicio no puede ser una fecha pasada.');
+      event.preventDefault();
+      return;
+    }
+
+    if (fechaFin <= fechaInicio) {
+      alert('La fecha de fin debe ser mayor a la fecha de inicio.');
+      event.preventDefault();
+    }
+  });
+</script>
+
+</body>
+</html>
